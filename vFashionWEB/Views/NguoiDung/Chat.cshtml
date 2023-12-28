@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var u = Session["use"] as vFashionWEB.Models.NguoiDung;
+}
+
+<div class="chat-bubble">
+    <div class="msgs"> </div>
+    <div class="status"></div>
+</div>
+<div class="chat-box hide">
+    <div class="messages">
+
+        <ul style="list-style:none" id="discussion"></ul>
+    </div>
+    <div class="input-holder">
+        <div class="control">
+            <input type="hidden" id="displayname" value="@u.Hoten" />
+            <input class="chat-input" type="text" id="message" onkeypress="clickPress(event)" />
+            <button id="sendmessage" class="chat-btn">Gửi</button>
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/chatroom.js"></script>
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        
+
+
+        $('.chat-bubble').click(function () {
+            console.log("Bubbling")
+            $('.chat-box').toggleClass('hide');
+            $('.chat-bubble').toggleClass('chat-bubble-hover');
+        })
+
+        $(function () {
+            var chat = $.connection.myHub1;
+            chat.client.addNewMessageToPage = function (name, message) {
+                $('#discussion').append('<li><strong>' + htmlEncode(name) + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+            /*$('#displayname').val(prompt('Enter your name:', ''));*/
+            $('#message').focus();
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    $('#message').val('').focus();
+                });
+            });
+        });
+        function clickPress(event) {
+            if (event.key == "Enter") {
+                event.preventDefault();
+                document.getElementById("sendmessage").click();
+            }
+        }
+
+        function htmlEncode(value) {
+            var encodeValue = $('<div/>').text(value).html();
+            return encodeValue;
+        }
+
+
+
+    </script>
+}

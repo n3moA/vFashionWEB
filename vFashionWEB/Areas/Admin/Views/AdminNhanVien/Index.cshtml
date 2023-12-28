@@ -1,0 +1,66 @@
+﻿
+<!-- main content start -->
+<div class="main-content">
+
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Nhân viên</li>
+            </ol>
+        </nav>
+        <!-- //breadcrumbs -->
+        <!-- forms -->
+        <section class="people">
+            <section class="w3l-team-block">
+                <!-- forms 1 -->
+                <div class="card card_border mb-5">
+                    <div class="cards__heading">
+                        <h3>Người dùng <span>- Nhân viên</span></h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="teams mb-4">
+                            <div class="row px-2">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 px-2">
+                                        <div class="item">
+                                            <div class="d-team-grid team-info">
+                                                <div class="column">
+                                                    <a href="@Url.Action("CTNhanVien", "AdminNhanVien", new { id = item.MaNguoiDung })"><img style="height:335.5px" src="@Url.Content("~/assets/images/" + item.HinhAnh)" alt="" /></a>
+                                                </div>
+                                                <div class="team-member">
+                                                    <h3 class="name-pos mb-0"><a href="@Url.Action("CTNhanVien", "AdminNhanVien", new { id = item.MaNguoiDung })">@item.Hoten</a></h3>
+                                                    <p>@item.PhanQuyen.TenQuyen</p>
+                                                    <div class="social">
+                                                        <a href="@item.Facebook" class="team-facebook">
+                                                            <span class="fa fa-facebook"
+                                                                  aria-hidden="true"></span>
+                                                        </a>
+                                                        <a href="@item.Twitter" class="team-twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                                                        <a href="@item.Instagram" class="team-instagram">
+                                                            <span class="fa fa-instagram"
+                                                                  aria-hidden="true"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </section>
+            </section>
+        </div>
+    </div>

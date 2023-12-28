@@ -1,0 +1,486 @@
+﻿
+@{
+    Layout = "~/Areas/NhanVien/Views/Shared/_Layout1.cshtml";
+}
+
+<!-- //header-ends -->
+<!-- main content start -->
+<div class="main-content">
+
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")">Nhân viên</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Thống kê</li>
+            </ol>
+        </nav>
+        @{
+            var adm = Session["use"] as vFashionWEB.Models.NguoiDung;
+        }
+        @{ if (adm != null)
+            {
+                <div class="welcome-msg pt-3 pb-4">
+                    <h1>Hi <span class="text-primary">@adm.Hoten</span>, Welcome back</h1>
+                    <p>Quyền quản lí dành cho Nhân viên.</p>
+                </div>
+
+            }
+        }
+
+        <!-- statistics data -->
+        <div class="statistics">
+            <div class="row">
+                <div class="col-xl-6 pr-xl-2">
+                    <div class="row">
+                        <div class="col-sm-6 pl-sm-2 statistics-grid">
+                            <div class="card card_border border-primary-top p-4">
+                                <i style="color: #6495ED" class="lnr lnr-cart"> </i>
+                                <h3 class="text-secondary number">@ViewBag.CountSanPham</h3>
+                                <p class="stat-text">Sản phẩm</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 pl-sm-2 statistics-grid">
+                            <div class="card card_border border-primary-top p-4">
+                                <i style="color:#ff4f81" class="lnr lnr-tag"> </i>
+                                <h3 class="text-danger number">@ViewBag.CountDonHang</h3>
+                                <p class="stat-text">Tổng đơn hàng</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-xl-6 pl-xl-2">
+                    <div class="row">
+                        <div class="col-sm-6 pr-sm-2 statistics-grid">
+                            <div class="card card_border border-primary-top p-4">
+                                <i style="color: #17a2b8" class="lnr lnr-checkmark-circle"> </i>
+                                <h3 style="color: #17a2b8 !important" class="text-success number">@ViewBag.TongBanRa </h3>
+                                <p class="stat-text">Sản phẩm đã bán</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 pl-sm-2 statistics-grid">
+                            <div class="card card_border border-primary-top p-4">
+                                <i style="color: #6f42c1" class="lnr lnr-home"> </i>
+                                <h3 style="color: #6f42c1 !important" class="text-danger number">@ViewBag.TongTonKho</h3>
+                                <p class="stat-text">Tồn kho</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                @*<div class="col-xl-6 pl-xl-2">
+                        <div class="row">
+                            <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                <div class="card card_border border-primary-top p-4">
+                                    <i style="color: #FA8D4F" class="lnr lnr-users"> </i>
+                                    <h3 class="text-primary number">@ViewBag.CountNguoiDung</h3>
+                                    <p class="stat-text">Người dùng</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                <div class="card card_border border-primary-top p-4">
+                                    <i style="color: #6c757d" class="lnr lnr-user"> </i>
+                                    <h3 style="color: #6c757d    !important" class="text-success number">@ViewBag.SoNguoiTruyCap</h3>
+                                    <p class="stat-text">Tổng số người truy cập</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>*@
+                @*<div class="col-xl-6 pl-xl-2">
+                    <div class="row">
+                        <div class="col-sm-5 pr-sm-2 statistics-grid">
+                            <div class="card card_border border-primary-top p-4">
+                                <i style="color: #ffc107" class="lnr lnr-user"> </i>
+                                <h3 style="color: #ffc107 !important" class="text-success number">@ViewBag.SoNguoiDangOnline</h3>
+                                <p class="stat-text">Số người đang online</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 pr-sm-2 statistics-grid">
+                            <div class="card card_border border-primary-top p-4">
+                                <i style="color:#03c895" class="lnr lnr-enter-down"> </i>
+                                <h3 class="text-success number">@String.Format("{0:0,0}", ViewBag.TongDoanhThu) Đ</h3>
+                                <p class="stat-text">Tổng doanh thu</p>
+                            </div>
+                        </div>*@
+                @*<div class="col-sm-6 pl-sm-2 statistics-grid">
+                        <div class="card card_border border-primary-top p-4">
+                            <i class="lnr lnr-cart"> </i>
+                            <h3 class="text-danger number">@ViewBag.CountDonHang</h3>
+                            <p class="stat-text">Đã Bán</p>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //statistics data -->
+<!-- charts -->
+<div style="margin-right: 30px; margin-left: 70px " class="chart">
+    <div class="row">
+        <div class="col-lg-8 pr-lg-2 chart-grid">
+            <div class="card text-center card_border">
+                <div class="card-header chart-grid__header">
+                    Biểu đồ
+                </div>
+                @*<select id="ddlYear" class="form-control" style="width:150px">
+                        <option value="0">Chọn năm</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+
+                    </select>*@
+                <div style="height:694px" class="card-body">
+                    <!-- bar chart -->
+                    <div id="container">
+                        <canvas id="barchart"></canvas>
+                    </div>
+                    <!-- //bar chart -->
+                </div>
+                <div class="card-footer text-muted chart-grid__footer">
+                    Đã cập nhật 2 giờ trước
+                </div>
+            </div>
+        </div>
+        @section scripts{
+
+            <script src="~/Areas/Assets/js/Chart.min.js"></script>
+
+
+
+            <script>
+
+                    var repDt1 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang1));
+                    var repDt2 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang2));
+                    var repDt3 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang3));
+                    var repDt4 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang4));
+                    var repDt5 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang5));
+                    var repDt6 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang6));
+                    var repDt7 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang7));
+                    var repDt8 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang8));
+                    var repDt9 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang9));
+                    var repDt10 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang10));
+                    var repDt11 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang11));
+                    var repDt12 = @Html.Raw(Json.Encode(ViewBag.TongDoanhThuThang12));
+
+                        new Chart(document.getElementById("barchart"), {
+                            type: 'bar',
+                            data: {
+                                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', ' November', 'December'],
+                                datasets: [{
+                                    data: [repDt1, repDt2, repDt3, repDt4, repDt5, repDt6, repDt7, repDt8, repDt9, repDt10, repDt11, repDt12],
+                                    label: '2022',
+                                    backgroundColor: "#03c895",
+                                    borderWidth: 1,
+		                            }, /*{*/
+			                           // data: [30,10,70,15,30,20,70,80,100,90,20,100],
+			                           // label: '2021',
+			                           // backgroundColor: "#E7EDF6",
+			                           // borderWidth: 1,
+		                            //}
+			                            ]
+                            },
+                            options: {
+                                responsive: true,
+                                legend: {
+                                    position: 'top',
+                                },
+                            }
+                        });
+            </script>
+
+
+
+
+
+
+        }
+        <div class="col-lg-4 pr-lg-2 chart-grid">
+            <div class="card text-center card_border">
+                <div class="card-header chart-grid__header">
+                    Thống kê
+                </div>
+                <div class="card-body">
+                    <!-- bar chart -->
+                    <div id="container">
+                        <div class="bs-example widget-shadow" data-example-id="hoverable-table">
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+
+                                        <th>Tháng</th>
+                                        <th>Số lượng bán ra</th>
+                                        <th>Lợi nhuận</th>
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+                                    <tr>
+
+                                        <td>Tháng 12</td>
+                                        <td>@ViewBag.TongSoLuongThang12</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang12) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 11</td>
+                                        <td>@ViewBag.TongSoLuongThang5</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang11) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 10</td>
+                                        <td>@ViewBag.TongSoLuongThang10</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang10) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 9</td>
+                                        <td>@ViewBag.TongSoLuongThang9</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang9) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 8</td>
+                                        <td>@ViewBag.TongSoLuongThang8</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang8) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 7</td>
+                                        <td>@ViewBag.TongSoLuongThang7</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang7) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 6</td>
+                                        <td>@ViewBag.TongSoLuongThang6</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang6) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 5</td>
+                                        <td>@ViewBag.TongSoLuongThang5</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang5) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 4</td>
+                                        <td>@ViewBag.TongSoLuongThang4</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang4) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 3</td>
+                                        <td>@ViewBag.TongSoLuongThang3</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang3) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 2</td>
+                                        <td>@ViewBag.TongSoLuongThang2</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang2) đ</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Tháng 1</td>
+                                        <td>@ViewBag.TongSoLuongThang1</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.TongDoanhThuThang1) đ</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //bar chart -->
+                </div>
+                <div class="card-footer text-muted chart-grid__footer">
+                    Đã cập nhật 2 giờ trước
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-lg-6 pl-lg-2 chart-grid">
+        <div class="card text-center card_border">
+            <div class="card-header chart-grid__header">
+                Line Chart
+            </div>
+            <div class="card-body">-->
+        <!-- line chart -->
+        <!--<div id="container">
+            <canvas id="linechart"></canvas>
+        </div>-->
+        <!-- //line chart -->
+        <!--</div>
+                <div class="card-footer text-muted chart-grid__footer">
+                    Updated just now
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!-- //charts -->
+<!-- chatting -->
+<!-- //chatting -->
+<!-- accordions -->
+<!--<div class="accordions">
+<div class="row">-->
+<!-- accordion style 1 -->
+<!--<div class="col-lg-12 mb-4">
+    <div class="card card_border">
+        <div class="card-header chart-grid__header">
+            Bootstrap Accordions
+        </div>
+        <div class="card-body">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header bg-white p-0" id="headingOne">
+                        <a href="#" class="card__title p-3" data-toggle="collapse" data-target="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">Collapsed accordion heading </a>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                         data-parent="#accordionExample">
+                        <div class="card-body para__style">
+                            Nulla tincidunt quam justo, in tincidunt tortor sollicitudin a. Donec porta posuere
+                            libero sed varius. Phasellus hendrerit commodo sem, at sagittis sapien semper quis.
+                            Etiam vitae facilisis nibh. Maecenas erat nisl, blandit at nunc a, lobortis sagittis
+                            ex. Maecenas pharetra pulvinar tincidunt.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-white p-0" id="headingTwo">
+                        <a href="#" class="card__title p-3" data-toggle="collapse" data-target="#collapseTwo"
+                           aria-expanded="false" aria-controls="collapseTwo">Click here to collapse accordion</a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body para__style">
+                            Nulla tincidunt quam justo, in tincidunt tortor sollicitudin a. Donec porta posuere
+                            libero sed varius. Phasellus hendrerit commodo sem, at sagittis sapien semper quis.
+                            Etiam vitae facilisis nibh. Maecenas erat nisl, blandit at nunc a, lobortis sagittis
+                            ex. Maecenas pharetra pulvinar tincidunt.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-white p-0" id="headingThree">
+                        <a href="#" class="card__title p-3" data-toggle="collapse" data-target="#collapseThree"
+                           aria-expanded="false" aria-controls="collapseThree">
+                            Click here to
+                            collapse accordion
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                         data-parent="#accordionExample">
+                        <div class="card-body para__style">
+                            Nulla tincidunt quam justo, in tincidunt tortor sollicitudin a. Donec porta posuere
+                            libero sed varius. Phasellus hendrerit commodo sem, at sagittis sapien semper quis.
+                            Etiam vitae facilisis nibh. Maecenas erat nisl, blandit at nunc a, lobortis sagittis
+                            ex. Maecenas pharetra pulvinar tincidunt.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- //accordion style 1 -->
+<!--</div>
+</div>-->
+<!-- //accordions -->
+<!-- modals -->
+<!--<section class="template-cards">
+<div class="card card_border">
+    <div class="cards__heading">
+        <h3>Modals - <span>2 different types of bootstrap modals</span></h3>
+    </div>
+    <div class="card-body pb-0">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-2 chart-grid">
+                <div class="card text-center card_border">
+                    <div class="card-header chart-grid__header">
+                        Demo modal
+                    </div>
+                    <div class="card-body">-->
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary btn-style" data-toggle="modal"
+        data-target="#exampleModal">
+    Launch demo
+</button>-->
+<!-- Modal -->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 chart-grid">
+    <div class="card text-center card_border">
+        <div class="card-header chart-grid__header">
+            Vertical centered
+        </div>
+        <div class="card-body">-->
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary btn-style" data-toggle="modal"
+        data-target="#exampleModalCenter">
+    Launch demo
+</button>-->
+<!-- Modal -->
+<!--<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- //modals -->
+<!--</div>-->
+<!-- //content -->

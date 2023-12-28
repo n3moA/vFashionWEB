@@ -1,0 +1,112 @@
+﻿@model PagedList.IPagedList<vFashionWEB.Models.HangSanXuat>
+@using PagedList.Mvc;
+<!-- main content start -->
+<div class="main-content">
+
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href=@Url.Action("Index", "AdminHome")>Admin</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hãng sản xuất</li>
+            </ol>
+        </nav>
+        <!-- //breadcrumbs -->
+        <!-- forms -->
+        <section class="forms">
+            <!-- forms 1 -->
+            <div class="card card_border py-2 mb-4">
+                <div style="padding-bottom:0px" class="cards__heading">
+                    <h3>Hãng <span><button style="float:right" type="button" onclick="location.href='@Url.Action("Create", "AdminHangSanXuat")'" class="btn btn-primary btn-style mt-4"> Thêm hãng</button></span></h3>
+                </div>
+                <div style="padding-top:0px" class="card-body">
+
+
+                    <form action="#" method="post">
+                        <br />
+                        <div class="bs-example widget-shadow" data-example-id="bordered-table">
+
+                            <table class="table table-bordered">
+                                <thead style="text-align:center">
+                                    <tr>
+                                        <th>Mã hãng</th>
+                                        <th>Tên tên hãng</th>
+                                        <th>Thông tin hãng</th>
+                                        <th>Tuỳ chỉnh</th>
+
+
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tbody style="text-align:center">
+                                        <tr>
+
+                                            <td>@Html.DisplayFor(modelItem => item.Mahang)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.TenHang)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.ChiTietHang)</td>
+
+                                            <td>
+
+
+                                                <div class="card-body">
+                                                    <!-- Button trigger modal -->
+                                                    <button style="background-color: cornflowerblue" type="button" onclick="location.href='@Url.Action("Edit", new { id=item.Mahang })'" class="fa fa-pencil btn btn-primary btn-style"></button>
+                                                    <button style="background-color: orangered" type="button" onclick="location.href='@Url.Action("Delete", new { id=item.Mahang })'" class="fa fa-trash btn btn-primary btn-style"></button>
+
+
+                                                    @*<button style="background-color: orangered" type="button" class="btn btn-primary btn-style" data-toggle="modal"
+                        data-target="#exampleModal">
+                    Xóa
+                </button>*@
+
+                                                    <!-- Modal -->
+                                                    @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Bạn có thực sự muốn xóa sản phẩm này không?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Delete", new { id = item.Masp })'">Xác nhận</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                            <!-- Thêm mã phân trang -->
+                            <br />
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                            <ul class="pagination modal-2">
+                                <li><a> @Html.PagedListPager(Model, page => Url.Action("Index", new { page })) </a></li>
+                            </ul>
+
+
+                            <!-- Kết thúc -->
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+    </div>
+
+
+</div>
+

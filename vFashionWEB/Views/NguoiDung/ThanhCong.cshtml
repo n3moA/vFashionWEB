@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Quang Vinh Sneaker - Đăng ký</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Flat lay login form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //Meta tag Keywords -->
+
+    <link href="//fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="~/assets/css/stylelogin.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+
+    <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- form section start -->
+    <section class="w3l-workinghny-form">
+        <!-- /form -->
+        
+        {
+            
+            <div class="workinghny-form-grid">
+                <div class="wrapper">
+                    <div class="logo">
+                        <h1><a class="brand-logo" href="@Url.Action("Index" , "Home")">Quang Vinh Sneaker</a></h1>
+                        <!-- if logo is image enable this
+                        <a class="brand-logo" href="#index.html">
+                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                        </a> -->
+                    </div>
+                    <div class="workinghny-block-grid">
+                        <div class="form-right-inf">
+                            <h2 style="font-size: 24px ; color: orange; " >Xác nhận thành công!</h2>
+                            <div class="login-form-content">
+                                <h2>Chúc mừng bạn đã đăng ký thành công. Vui lòng quay về trang đăng nhập để tiếp tục</h2>
+                                <form action="#" class="signin-form" method="post">
+                                    @*@using (Html.BeginForm("Delete", "Home", new { Id = emp.Id }, FormMethod.Post))
+                                    {
+
+
+                                    }*@
+                                    <button type="button" onclick="location.href='@Url.Action("Login", "NguoiDung")'" class="btn btn-style mt-3">Quay về trang đăng nhập</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- //form -->
+        <!-- copyright-->
+        <div class="copyright text-center">
+            <div class="wrapper">
+                <p class="copy-footer-29">
+                    © 2022 Quang Vinh Sneaker. All rights reserved | Design by <a href="https://www.facebook.com/dqv166/">VinhQuaiThu</a>
+                </p>
+            </div>
+        </div>
+        <!-- //copyright-->
+    </section>
+    <!-- //form section start -->
+</body>
+
+</html>
+
+

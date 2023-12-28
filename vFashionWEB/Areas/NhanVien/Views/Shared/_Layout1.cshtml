@@ -1,0 +1,473 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Manager</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/Areas/Assets/css/style-starter.css">
+
+
+    <!-- google fonts -->
+    <link href="~/Areas/Assets//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+
+    <script src="~/Scripts/JavaScriptHinhAnh.js"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <style>
+        :root {
+            --primary: #6da5d7;
+            --secondary: #84b2db;
+        }
+        .text-primary {
+            color: #6da5d7 !important;
+        }
+        .bg-primary {
+            background-color: #6da5d7 !important;
+        }
+        body {
+            font-family: sans-serif;
+            background-color: #eeeeee;
+        }
+        a {
+            color: #6da5d7;
+        }
+
+        .file-upload {
+            background-color: #ffffff;
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .file-upload-btn {
+            width: 100%;
+            margin: 0;
+            color: #fff;
+            background: #1FB264;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            /*border-bottom: 4px solid #15824B;*/
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+            .file-upload-btn:hover {
+                background: #fa8a4f;
+                color: #ffffff;
+                transition: all .2s ease;
+                cursor: pointer;
+            }
+
+            .file-upload-btn:active {
+                border: 0;
+                transition: all .2s ease;
+            }
+
+        .file-upload-content {
+            display: none;
+            text-align: center;
+        }
+
+        .file-upload-input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .image-upload-wrap {
+            margin-top: 20px;
+            border: 4px dashed #6da5d7;
+            position: relative;
+        }
+
+            .image-dropping,
+            .image-upload-wrap:hover {
+                background-color: #6da5d7;
+                border: 4px dashed #ffffff;
+            }
+
+        .image-title-wrap {
+            padding: 0 15px 15px 15px;
+            color: #222;
+        }
+
+        .drag-text {
+            text-align: center;
+        }
+
+            .drag-text h3 {
+                font-size: 16px;
+                /*font-weight: 60;*/
+                text-transform: uppercase;
+                color: #222;
+                padding: 60px 0;
+            }
+
+        .file-upload-image {
+            max-height: 200px;
+            max-width: 200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .remove-image {
+            width: 200px;
+            margin: 0;
+            color: #fff;
+            background: #fa8a4f;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            /*border-bottom: 4px solid #b02818;*/
+            transition: all .2s ease;
+            outline: none;
+            /*text-transform: uppercase;*/
+            /*font-weight: 700;*/
+        }
+
+            .remove-image:hover {
+                background: #c13b2a;
+                color: #ffffff;
+                transition: all .2s ease;
+                cursor: pointer;
+            }
+
+            .remove-image:active {
+                border: 0;
+                transition: all .2s ease;
+            }
+    </style>
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu">
+
+            <!-- logo start -->
+            <div class="logo">
+                <h1><a href="/Home/Index">Shop</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+
+            <div class="logo-icon text-center">
+                <a href="@Url.Action("Index", "NVHome")" title="logo"><img src="~/Areas/Assets/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+            <div class="sidebar-menu-inner">
+
+                <!-- sidebar nav start -->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li class="active">
+                        <a href="@Url.Action("Index", "NVHome")"><i class="fa fa-bar-chart"></i><span> Thống kê</span></a>
+                    </li>
+                    <li><a href="@Url.Action("Index", "NVSanPham")"><i class="fa fa-cubes"></i> <span>Sản phẩm</span></a></li>
+                    <li class="menu-list">
+                        @*<a href="#">
+                <i class="fa fa-user"></i>
+                <span>Tùy chỉnh tài khoản <i class="lnr lnr-chevron-right"></i></span>
+            </a>*@
+                        <ul class="sub-menu-list">
+                            @*<li><a href="@Url.Action("Index", "AdminTaiKhoan")">Tất cả tài khoản</a> </li>*@
+                            @*<li><a href="@Url.Action("Index", "AdminBoss")">Boss</a> </li>*@
+                            @*<li><a href="@Url.Action("Index", "AdminNhanVien")">Nhân viên</a> </li>*@
+                            @*<li><a href="@Url.Action("Index", "AdminKhachHang")">Khách hàng</a></li>*@
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("Index", "NVKhachHang")"><i class="fa fa-user"></i> <span>Khách hàng</span></a></li>
+                    <li><a href="@Url.Action("Index", "NVTrangThai")"><i class="fa fa-files-o"></i> <span>Đơn hàng</span></a></li>
+                    <li><a href="@Url.Action("Index", "NVDonHang")"><i class="fa fa-file-text"></i> <span>Hoá đơn</span></a></li>
+                    <li><a href="@Url.Action("Index", "NVChat")"><i class="fa fa-inbox"></i> <span>Tư vấn</span></a></li>
+                    @*<li><a href="@Url.Action("Index", "AdminHangSanXuat")"><i class="fa fa-hdd-o"></i> <span>Hãng sản xuất</span></a></li>*@
+                    @*<li><a href="forms.html"><i class="fa fa-table"></i> <span>Quảng bá</span></a></li>*@
+                    <li><a href="forms.html"><i class="fa fa-cogs"></i> <span>Thiết lập</span></a></li>
+
+                </ul>
+                <!-- //sidebar nav end -->
+                <!-- toggle button start -->
+                <a class="toggle-btn">
+                    <i class="fa fa-angle-double-left menu-collapsed__left"><span>Thu nhỏ</span></i>
+                    <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+                </a>
+                <!-- //toggle button end -->
+            </div>
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header">
+
+            <!-- notification menu start -->
+            <div class="menu-right">
+                <div class="navbar user-panel-top">
+                    <div class="search-box">
+                        <form action="#search-results.html" method="get">
+                            <input class="search-input" placeholder="Tìm kiếm..." type="search" id="search">
+                            <button class="search-submit" value=""><span class="fa fa-search"></span></button>
+                        </form>
+                    </div>
+                    <div class="user-dropdown-details d-flex">
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-bell-o"></i><span class="badge blue">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3>Bạn có 3 thông báo</h3>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar1.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>Johnson đã mua 1 đôi giày</p>
+                                                    <span>Bây giờ</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar2.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>Một người dùng đã đăng kí  </p>
+                                                    <span>1 giờ trước</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar3.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>Một người dùng đã thanh toán </p>
+                                                    <span>2 giờ trước</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="notification_bottom">
+                                                <a href="#all" class="bg-primary">Xem tất cả thông báo</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-comment-o"></i><span class="badge blue">4</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3>Bạn có 4 tin nhắn mới</h3>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar1.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>Xin size giày shop ơi</p>
+                                                    <span>Bây giờ</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar2.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>5 sao cho shop </p>
+                                                    <span>1 giờ trước</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar3.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>Không còn gì để bàn cãi về chất lượng </p>
+                                                    <span>2 giờ trước</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="grid">
+                                                <div class="user_img"><img src="~/Areas/Assets/images/avatar1.jpg" alt=""></div>
+                                                <div class="notification_desc">
+                                                    <p>Một sản phẩm tuyệt vời</p>
+                                                    <span>Bây giờ</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="notification_bottom">
+                                                <a href="#all" class="bg-primary">Xem tất cả tin nhắn </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        @{
+                            var adm = Session["use"] as vFashionWEB.Models.NguoiDung;
+                        }
+
+                        <div class="profile_details">
+                            <ul>
+                                @{ if (adm != null)
+                                    {
+                                        <li class="dropdown profile_details_drop">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
+                                               aria-expanded="false">
+                                                <div class="profile_img">
+                                                    <img src="@Url.Content("~/assets/images/" + adm.HinhAnh)" class="rounded-circle" alt="" />
+                                                    <div class="user-active">
+                                                        <span></span>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
+                                                <li class="user-info">
+                                                    <h5 class="user-name">@adm.Hoten</h5>
+                                                    <span class="status ml-2">@adm.PhanQuyen.TenQuyen </span>
+                                                </li>
+                                                <li> <a href="#"><i class="lnr lnr-user"></i>Hồ sơ</a> </li>
+                                                <li> <a href="#"><i class="lnr lnr-users"></i>Người theo dõi</a> </li>
+                                                <li> <a href="#"><i class="lnr lnr-cog"></i>Cài đặt</a> </li>
+                                                <li> <a href="#"><i class="lnr lnr-heart"></i>Lượt thích</a> </li>
+                                                <li class="logout"> <a href="/NguoiDung/DangXuat"><i class="fa fa-power-off"></i> Đăng xuất</a> </li>
+                                            </ul>
+
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- //header-ends -->
+        @RenderBody()
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+        <p>
+            &copy @DateTime.Now.Year - Sneaker Shop. All rights reserved | Copyright by <a href="https://www.facebook.com/dqv166/" target="_blank"
+                                                                                                 class="text-primary"></a>
+        </p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- /move top -->
+
+
+    <script src="~/Areas/Assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Areas/Assets/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="~/Areas/Assets/js/Chart.min.js"></script>
+    <script src="~/Areas/Assets/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    @*<script src="~/Areas/Assets/js/bar.js"></script>*@
+    <script src="~/Areas/Assets/js/linechart.js"></script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="~/Areas/Assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Areas/Assets/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>
+        var closebtns = document.getElementsByClassName("close-grid");
+        var i;
+
+        for (i = 0; i < closebtns.length; i++) {
+            closebtns[i].addEventListener("click", function () {
+                this.parentElement.style.display = 'none';
+            });
+        }
+    </script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>
+        $(function () {
+            $('.sidebar-menu-collapsed').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="~/Areas/Assets/js/modernizr.js"></script>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/Assets/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", false)
+
+</body>
+
+</html>
+

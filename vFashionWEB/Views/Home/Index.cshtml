@@ -1,0 +1,626 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sneaker Shop - Chuyên cung cấp sneaker chính hãng.</title>
+
+    <!-- custom-theme -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //custom-theme -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="/assets/css/shop.css" type="text/css" media="screen" property="" />
+    <link href="/assets/css/style7.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    
+    <!-- font-awesome-icons -->
+    <link href="/assets/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link href="/assets///fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+    <link href="/assets///fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+</head>
+<body>
+
+    <!-- banner -->
+    <div class="banner_top" id="home">
+        <div class="wrapper_top_w3layouts">
+
+            <div class="header_agileits">
+                <div class="logo">
+                    <h1><a class="navbar-brand" href="@Url.Action("Index", "Home")"><span>Sneaker</span> <i>Shop</i></a></h1>
+                </div>
+                <div class="overlay overlay-contentpush">
+                    <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    @{
+                        var u = Session["use"] as vFashionWEB.Models.NguoiDung;
+                    }
+                    <nav>
+                        <ul>
+                            @{ if (u != null)
+
+                                {
+                                    <li class="profile_img">
+                                        <img src="@Url.Content("~/assets/images/" + u.HinhAnh)" class="rounded-circle" alt="" />
+
+                                    </li>
+                                    <h2 style="color: orange"> @u.Hoten </h2>
+                                    <li><a href="@Url.Action("HoSo", "NguoiDung")">Thông tin</a></li>
+                                    <li><a href="/NguoiDung/DangXuat">Đăng xuất</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="/NguoiDung/Login">Đăng nhập</a></li>
+                                }
+                                <br />
+                                <li><a href="@Url.Action("Index", "Home")" class="active">Trang Chủ</a></li>
+                                <li><a href="@Url.Action("About", "Home")">Thông tin</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
+                                <li><a href="@Url.Action("Index", "SanPham")">Sản phẩm</a></li>
+                                @*<li><a href="@Url.Action("Login" , "NguoiDung")">Đăng nhập</a></li>*@
+                            }
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mobile-nav-button">
+                    <button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                </div>
+
+                <!-- cart details -->
+                @*<div class="top_nav_right">
+                        <div class="shoecart shoecart2 cart cart box_1">
+                            <form action="#" method="post" class="last">
+                                <input type="hidden" name="cmd" value="_cart">
+                                <input type="hidden" name="display" value="1">
+                                <button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+
+                    </div>*@
+
+                <!-- //cart details -->
+                <!-- search -->
+                @*<div class="search_w3ls_agileinfo">
+                        <div class="cd-main-header">
+                            <ul class="cd-header-buttons">
+                                <li><a class="cd-search-trigger" href="@Url.Action("Login" , "NguoiDung")"> <span></span></a></li>
+                            </ul>
+                        </div>
+                        <div id="cd-search" class="cd-search">
+                            <form action="#" method="post">
+                                <input name="Search" type="search" placeholder="Click enter after typing...">
+                            </form>
+                        </div>
+                    </div>*@
+
+
+                <!-- //search -->
+
+                <div class="clearfix"></div>
+            </div>
+            <!-- /slider -->
+
+
+            <div class="slider">
+                <div class="callbacks_container">
+                    <ul class="rslides callbacks callbacks1" id="slider4">
+
+                        <li>
+                            <div class="banner-top2">
+                                <div class="banner-info-wthree">
+                                    <h3>Nike</h3>
+                                    <p>Thách thức giới hạn của bản thân.</p>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="banner-top3">
+                                <div class="banner-info-wthree">
+                                    <h3>Adidas</h3>
+                                    <p>Kẻ khổng lồ trong ngành giày thể thao</p>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="banner-top">
+                                <div class="banner-info-wthree">
+                                    <h3>Converse</h3>
+                                    <p>Thương hiệu giày kinh điển của thế giới.</p>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="banner-top1">
+                                <div class="banner-info-wthree">
+                                    <h3>Vans</h3>
+                                    <p>“Bình dân” nhưng không tầm thường.</p>
+
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //slider -->
+            <ul class="top_icons">
+                <li><a href="https://www.facebook.com/dqv166/"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+                <li><a href="https://www.instagram.com/dqv166/"><span class="fa fa-instagram" aria-hidden="true"></span></a></li>
+                <li><a href="https://twitter.com/deptraichoi3"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                <li><a href="mailto:milfplusdarkskin@gmail.com"><span class="fa fa-google-plus" aria-hidden="true"></span></a></li>
+
+            </ul>
+
+
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- /girds_bottom-->
+
+    <video width="100%" height="" autoplay loop muted>
+        <source src="~/assets/images/intro.mp4" type="video/mp4" />
+    </video>
+
+
+    <div class="grids_bottom">
+
+        <div class="col-md-6 style-grid style-grid-2">
+            <div style="background-color : #8479E1" class="style-image-1_info">
+                <div class="style-grid-2-text_info">
+                    <h3>Nike Air Force 1</h3>
+                    <p>
+                        Air Force 1 là một sản phẩm thuộc thương hiệu nổi tiếng NIKE, đồng thời là một thương hiệu cực kì nổi tiếng với dân streetwear. Được mang trên mình một thiết kế mới lạ hứa hiện sẽ mang đến cho người dùng một cảm giác thật thoải mái.
+                    </p>
+                    <div class="shop-button">
+                        <a href="https://www.nike.com/vn/jordan">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="style-image-2">
+                <img src="~/assets/images/nen6.jpg" alt="shoe">
+                <div class="style-grid-2-text">
+                    <h3></h3>
+                </div>
+            </div>
+        </div>
+        <div class="style-grids">
+            <div class="col-md-6 style-grid style-grid-1">
+                <img src="~/assets/images/nen4b.jpg" alt="shoe">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="grids_bottom">
+
+        <div class="col-md-6 style-grid style-grid-2">
+            <div style="background-color : #000000" class="style-image-1_info">
+                <div class="style-grid-2-text_info">
+                    <h3>Nike Jordan 1</h3>
+                    <p>
+                        Air Jordan 1 là một sản phẩm thuộc thương hiệu nổi tiếng NIKE, đồng thời là một thương hiệu cực kì nổi tiếng với dân streetwear. Được mang trên mình một thiết kế mới lạ hứa hiện sẽ mang đến cho người dùng một cảm giác thật thoải mái.
+                    </p>
+                    <div class="shop-button">
+                        <a href="https://www.nike.com/vn/jordan">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="style-image-2">
+                <img src="~/assets/images/b13.jpg" alt="shoe">
+                <div class="style-grid-2-text">
+                    <h3></h3>
+                </div>
+            </div>
+        </div>
+        <div class="style-grids">
+            <div class="col-md-6 style-grid style-grid-1">
+                <img src="~/assets/images/b20z1.jpg" alt="shoe">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <!-- //grids_bottom-->
+    <!-- /girds_bottom2-->
+    <div class="grids_sec_2">
+        <div class="style-grids_main">
+            <div class="col-md-6 grids_sec_2_left">
+                <div style="background-color: #FFBC80" class="grid_sec_info">
+                    <div class="style-grid-2-text_info">
+                        <h3>Adidas</h3>
+                        <p>
+                            Chắc chắn đây là một thương hiệu cực kì quen thuộc của mọi người, vì từ quần áo đến phụ kiện của hãng này cực kì quen thuộc vì vậy giày cũng là một sản phẩm cực kì tốt.
+
+                        </p>
+                        <div class="shop-button">
+                            <a href="https://www.adidas.com.vn/vi">Xem Thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="style-image-2">
+                    <img src="~/assets/images/b31z1.jpg" alt="shoe">
+                    <div class="style-grid-2-text">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grids_sec_2_left">
+
+                <div class="style-image-2">
+                    <img src="~/assets/images/b31z.jpg" alt="shoe">
+                    <div class="style-grid-2-text">
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="grid_sec_info last">
+                    <div class="style-grid-2-text_info">
+                        <h3>Converse</h3>
+                        <p>
+                            Là một thương hiệu được biết đến như là một sản phẩm dành cho người có điều kiện, nhưng thực chất đôi giày này được làm ra để dành cho tất cả mọi người, không phân biệt. Hãy đi và cảm nhận.
+
+                        </p>
+                        <div class="shop-button two">
+                            <a href="https://elly.vn/tong-quan-thuong-hieu-giay-converse/">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="grids_sec_2">
+        <div class="style-grids_main">
+            <div class="col-md-6 grids_sec_2_left">
+                <div style="background-color: #43919B" class="grid_sec_info">
+                    <div class="style-grid-2-text_info">
+                        <h3>Balenciaga</h3>
+                        <p>
+                            Balenciaga được thành lập bởi couturier người Tây Ban Nha, Cristóbal Balenciaga từ năm 1919. Nhắc đến Cristóbal Balenciaga, người ta luôn nói về những thiết kế phá vỡ mọi nguyên tắc. Ông xóa bỏ các phom dáng nhàm chán bằng những cải tiến sáng tạo mang tính lịch sử. Đồng thời đem đến một cuộc định hình mới về phom dáng cho phái đẹp suốt thập niên 1950.
+                        </p>
+                        <div class="shop-button">
+                            <a href="https://bazaarvietnam.vn/thuong-hieu/balenciaga/">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="style-image-2">
+                    <img src="~/assets/images/b31z6.jpg" alt="shoe">
+                    <div class="style-grid-2-text">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grids_sec_2_left">
+
+                <div class="style-image-2">
+                    <img src="~/assets/images/b31z2.jpg" alt="shoe">
+                    <div class="style-grid-2-text">
+                        <h3></h3>
+                    </div>
+                </div>
+                <div style="background-color: #F55353 " class="grid_sec_info last">
+                    <div class="style-grid-2-text_info">
+                        <h3>Puma Special</h3>
+                        <p>
+                            Puma là một thương hiệu thời trang thể thao đến từ Đức với các mặt hàng chủ yếu là giày dép, quần áo, dụng cụ thể thao và các sản phẩm ít phổ biến hơn như đồng hồ, nước hoa,...Hãng sản xuất lên đến 500 mẫu sản phẩm nhắm vào 4 phân khúc chủ lực là Sportstyle; Running; Training và Selection. Phong cách của các sản phẩm là khỏe khoắn, trẻ trung và phóng khoáng.
+
+                        </p>
+                        <div class="shop-button two">
+                            <a href="https://vuahanghieu.com/tin-tuc/tim-hieu-lich-su-ra-doi-va-phat-trien-cua-thuong-hieu-puma">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- //grids_bottom2-->
+    <!-- /Properties -->
+    <!--<div class="mid_slider_w3lsagile">
+        <div class="col-md-3 mid_slider_text">
+            <h5>Sản phẩm khác!</h5>
+        </div>
+        <div class="col-md-9 mid_slider_info">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
+    <!-- Indicators -->
+    <!--<ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g5.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g6.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                    <div class="thumbnail"><img src="/assets/images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="fa fa-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="fa fa-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>-->
+    <!-- The Modal -->
+    <!--</div>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>-->
+    <!--//banner -->
+    <!-- /newsletter-->
+    @*<div class="newsletter_w3layouts_agile">
+            <div class="col-sm-6 newsleft">
+                <h3>Đăng ký để nhận tin tức mới nhất !</h3>
+            </div>
+            <div class="col-sm-6 newsright">
+                <form action="#" method="post">
+                    <input type="email" placeholder="Enter your email..." name="email" required="">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>*@
+    <!-- //newsletter-->
+    <!-- footer -->
+    <div class="footer_agileinfo_w3">
+        <div class="footer_inner_info_w3ls_agileits">
+            <div class="col-md-3 footer-left">
+                <h2><a href="@Url.Action("Index" , "Home")"><span>Quang Vinh</span>Sneaker </a></h2>
+                <p>Luôn luôn quan tâm đến phong cách thời trang của bạn.</p>
+                <ul class="social-nav model-3d-0 footer-social social two">
+                    <li>
+                        <a href="https://www.facebook.com/dqv166/" class="facebook">
+                            <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/deptraichoi3" class="twitter">
+                            <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/dqv166/" class="instagram">
+                            <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="pinterest">
+                            <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9 footer-right">
+                <div class="sign-grds">
+                    <div class="col-md-4 sign-gd">
+                        <h4>Về <span>Chúng tôi</span> </h4>
+                        <ul>
+                            <li><a href="@Url.Action("Index" , "Home")">Trang chủ</a></li>
+                            <li><a href="https://www.nike.com/vn/">Nike</a></li>
+                            <li><a href="https://www.adidas.com.vn/vi">Adidas</a></li>
+                            <li><a href="https://bill.payoo.vn/tra-tien-thanh-toan-vay-tra-gop-fe-credit?AspxAutoDetectCookieSupport=1">FE Credit</a></li>
+                            <li><a href="https://youtu.be/MDI_KKZDfV4">Thước phim ngắn</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-md-5 sign-gd-two">
+                        <h4>Thông tin <span>liên lạc</span></h4>
+                        <div class="address">
+                            <div class="address-grid">
+                                <div class="address-left">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="address-right">
+                                    <h6>Số điện thoại</h6>
+                                    <p>033.958.7549</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="address-grid">
+                                <div class="address-left">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div class="address-right">
+                                    <h6>Email Address</h6>
+                                    <p>Email :<a href="mailto:milfplusdarkskin@gmail.com"> dqv166@gmail.com</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="address-grid">
+                                <div class="address-left">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </div>
+                                <div class="address-right">
+                                    <h6>Địa Chỉ</h6>
+                                    <p>
+                                        21 Ngo Gia Tu, P. Bình Định, Tx. An Nhơn, VN.
+
+                                    </p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 sign-gd flickr-post">
+                        <h4>Đẹp Trai <span>Posts Ảnh</span></h4>
+                        <ul>
+                            <li><a href="single.html"><img src="~/assets/images/v1.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v2.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v3.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v2.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v3.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v1.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v3.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v1.jpg" alt=" " class="img-responsive" /></a></li>
+                            <li><a href="single.html"><img src="~/assets/images/v2.jpg" alt=" " class="img-responsive" /></a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <p class="copy-right-w3ls-agileits">&copy @DateTime.Now.Year - Quang Vinh Sneaker. All rights reserved | Copyright by <a href="https://www.facebook.com/dqv166/">VinhQuaiThu</a></p>
+        </div>
+    </div>
+
+    <!-- //footer -->
+    <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- js -->
+    <script type="text/javascript" src="/assets/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- /nav -->
+    <script src="/assets/js/modernizr-2.6.2.min.js"></script>
+    <script src="/assets/js/classie.js"></script>
+    <script src="/assets/js/demo1.js"></script>
+    <!-- //nav -->
+    <!-- cart-js -->
+    <script src="/assets/js/minicart.js"></script>
+    <script>
+        shoe.render();
+
+        shoe.cart.on('shoe_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!--search-bar-->
+    <script src="/assets/js/search.js"></script>
+    <!--//search-bar-->
+    <script src="/assets/js/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: true,
+                speed: 1000,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+        });
+    </script>
+    <!-- js for portfolio lightbox -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="/assets/js/move-top.js"></script>
+    <script type="text/javascript" src="/assets/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smoth-scrolling -->
+
+    <script type="text/javascript" src="/assets/js/bootstrap-3.1.1.min.js"></script>
+
+
+</body>
+</html>
+

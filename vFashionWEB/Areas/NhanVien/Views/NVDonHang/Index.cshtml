@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/NhanVien/Views/Shared/_Layout1.cshtml";
+}
+
+
+@model PagedList.IPagedList<vFashionWEB.Models.DonHang>
+
+@using PagedList.Mvc;
+<!-- main content start -->
+<div class="main-content">
+
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")">Admin</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Đơn hàng</li>
+            </ol>
+        </nav>
+        <!-- //breadcrumbs -->
+        <!-- forms -->
+        <section class="forms">
+            <!-- forms 1 -->
+            <div class="card card_border py-2 mb-4">
+                <div style="padding-bottom:0px" class="cards__heading">
+                    <h3>Danh sách đơn hàng <span></span></h3>
+                </div>
+                <div style="padding-top:0px" class="card-body">
+
+
+                    <form action="#" method="post">
+
+                        <div class="bs-example widget-shadow" data-example-id="bordered-table">
+
+                            <table class="table table-bordered">
+                                <thead style="text-align:center">
+                                    <tr>
+                                        <th>Đơn</th>
+                                        <th>Người đặt</th>
+                                        <th>Ngày đặt</th>
+                                        @*<th>Số điện thoại</th>
+                                            <th>Địa chỉ nhận hàng</th>
+                                            <th>Ghi chú của khách hàng</th>*@
+                                        <th>Tình trạng đơn hàng</th>
+                                        <th>Tuỳ chọn</th>
+
+
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tbody style="text-align:center">
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.Madon)</td>
+                                            <td>@item.NguoiDung.Hoten</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+                                            @*<td>@Html.DisplayFor(modelItem => item.ShipTel)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.ShipAddress)</td>
+                                                <td>"@Html.DisplayFor(modelItem => item.Status)"</td>*@
+                                            <td style="font-style: italic ; color:green ;  font-weight:bold">@Html.DisplayFor(modelItem => item.TinhTrang1.LoaiTT)</td>
+
+                                            <td>
+                                                <button style="background-color: lawngreen" type="button" onclick="location.href='@Url.Action("Detail", new { id=item.Madon })'" class="fa fa-info-circle btn btn-primary btn-style"></button>
+                                                @*<button style="background-color: cornflowerblue" type="button" onclick="location.href='@Url.Action("Edit", new { id=item.Madon })'" class="fa fa-pencil btn btn-primary btn-style"></button>*@
+                                                <button style="background-color: orangered" type="button" onclick="location.href='@Url.Action("Delete", new { id=item.Madon })'" class="fa fa-trash btn btn-primary btn-style"></button>
+
+                                                @*@Html.ActionLink("Sửa", "Edit", new { id = item.Madon }) |
+                                                    @Html.ActionLink("Xoá", "Delete", new { id = item.Madon })*@
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                            <!-- Thêm mã phân trang -->
+                            <br />
+
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+                            @Html.PagedListPager(Model, page => Url.Action("Index",
+                                                                       new { page }))
+
+                            <!-- Kết thúc -->
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+    </div>
+
+
+</div>
+
+
+

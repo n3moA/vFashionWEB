@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>test</h2>
+<script src="~/Scripts/jquery.signalR-2.4.3.js"></script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <input type="text" id="displayname" />
+    <input type="text" id="message" onkeypress="clickPress(event)" />
+    <input type="button" id="sendmessage" value="Send" />
+
+    <ul id="discussion"></ul>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            var chat = $.connection.myHub1;
+            chat.client.addNewMessageToPage = function (name, message) {
+                $('#discussion').append('<li><strong>' + htmlEncode(name) + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+            /*$('#displayname').val(prompt('Enter your name:', ''));*/
+            $('#message').focus();
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    $('#message').val('').focus();
+                });
+            });
+        });
+        function clickPress(event) {
+            if (event.key == "Enter") {
+                event.preventDefault();
+                document.getElementById("sendmessage").click();
+            }
+        }
+
+        function htmlEncode(value) {
+            var encodeValue = $('<div/>').text(value).html();
+            return encodeValue;
+        }
+
+
+    </script>
+}

@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/NhanVien/Views/Shared/_Layout1.cshtml";
+}
+
+@model vFashionWEB.Models.DonHang
+<link href="~/Areas/Assets/css/hoadon.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="~/Areas/Assets/css/profilecard.css">
+
+
+<div class="main-content">
+
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href=@Url.Action("Index", "AdminHome")>Admin</a></li>
+                <li class="breadcrumb-item"><a href=@Url.Action("Index", "AdminDonHang")>Hoá đơn</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Thông tin hoá đơn</li>
+            </ol>
+        </nav>
+        <div style="width:1140px" class="container">
+            <div class="row">
+                <!-- BEGIN INVOICE -->
+                <div class="col-xs-12">
+                    <div class="grid invoice">
+                        <div class="grid-body">
+                            <div class="invoice-title">
+                                <div class="row">
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-xs-12">
+                                        <h2>
+                                            Hoá đơn<br>
+                                            <span class="small">Mã #@Html.DisplayFor(model => model.Madon)</span>
+                                        </h2>
+                                    </div>
+                                    <div style="margin-left:auto; margin-right:10px" class="col-xs-12">
+                                        @*<img src="http://vergo-kertas.herokuapp.com/assets/img/logo.png" alt="" height="35">*@
+                                        <img src="~/Areas/Assets/images/logovinhdz.png" alt="" height="200" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <address>
+                                        <strong>Người mua:</strong><br>
+                                        @Html.DisplayFor(model => model.NguoiDung.Hoten)<br>
+                                        @Html.DisplayFor(model => model.NguoiDung.Email)<br>
+                                        @Html.DisplayFor(model => model.NguoiDung.Diachi)   <br>
+                                        @Html.DisplayFor(model => model.NguoiDung.Dienthoai)<br>
+
+
+
+
+                                        @*Twitter, Inc.<br>
+                                            795 Folsom Ave, Suite 600<br>
+                                            San Francisco, CA 94107<br>*@
+                                        <!--<abbr title="Phone">P:</abbr> (123) 456-7890-->
+                                    </address>
+                                </div>
+
+                                <div style="margin-left:auto; margin-right:10px" class="col-xs-1 text-right">
+                                    <address>
+                                        <strong>Người nhận:</strong><br>
+                                        @Html.DisplayFor(model => model.ShipName)<br>
+                                        @Html.DisplayFor(model => model.ShipEmail)<br>
+                                        @Html.DisplayFor(model => model.ShipAddress)   <br>
+                                        @Html.DisplayFor(model => model.ShipTel)<br>
+                                    </address>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <address>
+                                        <strong>Phương thức thanh toán:</strong><br>
+                                        @Model.ThanhToan.LoaiThanhToan<br>
+                                        @*Visa ending **** 1234<br>
+                                            h.elaine@gmail.com<br>*@
+                                    </address>
+                                </div>
+                                <div style="margin-left:auto; margin-right:10px" class="col-xs-6 text-right">
+                                    <address>
+                                        <strong>Ngày đặt:</strong><br>
+                                        @Html.DisplayFor(model => model.Ngaydat)
+                                    </address>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Đơn Hàng</h3>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr class="line">
+                                                <td><strong>#</strong></td>
+                                                <td class="text-center"><strong>Tên sản phẩm</strong></td>
+                                                <td class="text-center"><strong>Số lượng</strong></td>
+                                                <td class="text-right"><strong>Đơn giá</strong></td>
+                                                <td class="text-right"><strong>Thành tiền</strong></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.CTDonHangs)
+                                            {
+
+                                                <tr>
+                                                    <td>@item.Masp</td>
+                                                    <td style="width:820px"><strong>@item.SanPham.Tensp</strong><br> @item.SanPham.Mota</td>
+                                                    <td class="text-center">@item.Soluong</td>
+                                                    <td class="text-center">@String.Format("{0:0,0}", item.Dongia)</td>
+                                                    <td class="text-right">@String.Format("{0:0,0}", item.Thanhtien)</td>
+                                                </tr>
+                                            }
+                                            @*<tr>
+                                                    <td>2</td>
+                                                    <td><strong>Template Development</strong><br>Web development is a broad term for the work involved in developing a web site for the Internet (World Wide Web) or an intranet (a private network).</td>
+                                                    <td class="text-center">15</td>
+                                                    <td class="text-center">$75</td>
+                                                    <td class="text-right">$1,125.00</td>
+                                                </tr>
+                                                <tr class="line">
+                                                    <td>3</td>
+                                                    <td><strong>Testing</strong><br>Take measures to check the quality, performance, or reliability of (something), especially before putting it into widespread use or practice.</td>
+                                                    <td class="text-center">2</td>
+                                                    <td class="text-center">$75</td>
+                                                    <td class="text-right">$150.00</td>
+                                                </tr>*@
+                                            <tr>
+                                                <td colspan="3"></td>
+                                                <td class="text-right"><strong>Thuế</strong></td>
+                                                <td class="text-right"><strong>0%</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                </td>
+                                                <td class="text-right"><strong>Tổng</strong></td>
+                                                <td class="text-right"><strong>@String.Format("{0:0,0}", Model.Tongthanhtien)đ</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-right identity">
+                                    <p>Xác nhận hoá đơn<br><strong>Đặng Quang Vinh</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END INVOICE -->
+            </div>
+        </div>
+
+

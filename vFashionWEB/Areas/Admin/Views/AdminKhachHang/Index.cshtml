@@ -1,0 +1,62 @@
+﻿@*@model IEnumerable<vFashionWEB.Models.NguoiDung>*@
+<!-- main content start -->
+<div class="main-content">
+
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb my-breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "AdminHome")">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Khách hàng</li>
+            </ol>
+        </nav>
+        <!-- //breadcrumbs -->
+        <!-- forms -->
+        <section class="people">
+            <!-- forms 1 -->
+            <div class="card card_border mb-5">
+                <div class="cards__heading">
+                    <h3>Người dùng <span>- Khách hàng</span></h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="row px-2">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 mb-4 px-2">
+                                <div class="card text-center card_border py-2">
+                                    <div class="card-body">
+                                        <div class="team-main-19">
+                                            <a href="#url"><img style="height:120px; width:120px" class="rounded-circle" src="@Url.Content("~/assets/images/" + item.HinhAnh)" alt=" "></a>
+                                            <div class="right-team-9">
+                                                <div>
+                                                    <h5>
+                                                        <a href="#url" class="card__title mb-2 mt-3">@item.Hoten</a>
+                                                    </h5>
+                                                    <p class="">@item.PhanQuyen.TenQuyen</p>
+                                                </div>
+                                                <div class="people-social mt-3">
+                                                    <a href="@item.Facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                                                    <a href="@item.Instagram" class="linkedin"><span class="fa fa-instagram"></span></a>
+                                                    <a href="@item.Twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+
+                                                </div>
+                                                <a href="@Url.Action("CTKhachHang", "AdminKhachHang", new { id = item.MaNguoiDung })" class="btn mt-4 profile-btn text-primary">Xem hồ sơ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
